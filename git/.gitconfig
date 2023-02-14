@@ -1,0 +1,26 @@
+[user]
+	name = Balša Šarenac
+	email = balsa.smi15@gmail.com
+[alias]
+	st = status
+	br = branch
+	graph = log --oneline --graph --decorate --all
+	co = checkout
+	ci = commit
+	sw = switch
+	swc = switch -c
+    stat = status -sb
+	last = log -1 --stat
+	unstage = reset HEAD --
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[difftool]
+	prompt = false
