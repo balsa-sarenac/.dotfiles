@@ -1,0 +1,31 @@
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# enable debug log
+yabai -m config debug_output on
+
+# set binary partitionin
+yabai -m config layout bsp
+
+# Set all padding and gaps to 20pt (default: 0)
+yabai -m config top_padding    4
+yabai -m config bottom_padding 4
+yabai -m config left_padding   4
+yabai -m config right_padding  4
+yabai -m config window_gap     4
+
+# add 20 padding to the top and 0 padding to the bottom of every space located on the main display
+# yabai -m config external_bar main:20:0
+# add 20 padding to the top and bottom of all spaces regardless of the display it belongs to
+# yabai -m config external_bar all:20:20
+
+# Web browsers
+yabai -m rule --add app="^(Firefox|Google Chrome|qutebrowser)$" space=1 # Browsers
+yabai -m rule --add app="^(Code)$" space=2 # Text editors
+yabai -m rule --add app="^(IntelliJ IDEA|PyCharm|Rider)" space=3  manage=off # JetBrains
+yabai -m rule --add app="^(kitty|iTerm2)$" space=4 # Terminal
+yabai -m rule --add app="^(Spotify|Music)$" space=5 # Music
+yabai -m rule --add app="^(Slack|Signal|Microsoft Teams|Discord)$" space=6 # Social
