@@ -17,6 +17,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     behavior = cmp.ConfirmBehavior.Replace,
     select = true
   },
+  ['<Tab>'] = cmp.config.disable,
 })
 
 lsp.set_preferences({
