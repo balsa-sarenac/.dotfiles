@@ -15,8 +15,14 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use('folke/tokyonight.nvim')
+  use {
+    "mcchrish/zenbones.nvim",
+    requires = "rktjmp/lush.nvim"
+  }
+  use('rmehri01/onenord.nvim')
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use('nvim-treesitter/nvim-treesitter-context')
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
@@ -53,5 +59,16 @@ return require('packer').startup(function(use)
   use('github/copilot.vim')
 
   use('tzachar/local-highlight.nvim')
+
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+  }
+
+
+  use("Exafunction/codeium.vim")
 
 end)
