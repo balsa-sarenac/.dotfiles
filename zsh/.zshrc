@@ -2,14 +2,12 @@
 export PATH=$PATH:~/.emacs.d/bin
 export XDG_CONFIG_HOME=~/.config
 
-# flutter
-export PATH=$PATH:~/development/flutter/bin
-export PATH=$PATH:$HOME/.pub-cache/bin
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+export PATH="$PATH:$HOME/bin"
 
 # postgres
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
