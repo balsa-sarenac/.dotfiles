@@ -1,6 +1,7 @@
+export XDG_CONFIG_HOME=~/.config
+
 # Doom emacs
 export PATH=$PATH:~/.emacs.d/bin
-export XDG_CONFIG_HOME=~/.config
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
