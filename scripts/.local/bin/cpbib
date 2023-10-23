@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cp -f /Users/balsa/Research/Bibliography/bib/others.bib .
+cp -f /Users/balsa/Research/Bibliography/bib/rmod.bib .
+chmod a-w others.bib
+chmod a-w rmod.bib
+#chmod a-w shortlse.bib
