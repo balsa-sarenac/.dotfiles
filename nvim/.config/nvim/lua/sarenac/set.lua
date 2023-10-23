@@ -40,3 +40,6 @@ vim.o.completeopt = 'menuone,noselect'
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+vim.opt.foldmethod = 'syntax'
+vim.opt.foldlevelstart = 99
