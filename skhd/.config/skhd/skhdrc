@@ -107,23 +107,19 @@
 
 .blacklist [
     "pharo",
-    # "firefox"
 ]
 
 # restart yabai config
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
-# open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+# open terminal
+cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
-# open qutebrowser
-cmd + shift - return : ~/Scripts/qtb.sh
+# open Arc
+cmd + shift - return : /Applications/Arc.app/Contents/MacOS/Arc
 
 # open mpv
 cmd - m : open -na /Applications/mpv.app $(pbpaste)
-
-# emacs everywhere
-cmd - e : emacsclient --eval "(emacs-everywhere)"
 
 # change layout of desktop
 cmd + ctrl - a : yabai -m space --layout bsp
