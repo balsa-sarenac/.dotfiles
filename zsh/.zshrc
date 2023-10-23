@@ -83,7 +83,8 @@ export NVM_DIR="$HOME/.nvm"
 # start emacs daemon
 # emacs --daemon
 
-eval "$(bw completion --shell zsh); compdef _bw bw;"
+# bitwarden completion
+# eval "$(bw completion --shell zsh); compdef _bw bw;"
 
 
 ######################################################################
