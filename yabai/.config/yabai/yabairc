@@ -20,7 +20,7 @@ yabai -m config                                 \
     window_origin_display        default        \
     window_placement             second_child   \
     window_zoom_persist          on             \
-    window_shadow                on             \
+    window_shadow                off             \
     window_animation_duration    0.0            \
     window_animation_frame_rate  120            \
     window_opacity_duration      0.0            \
@@ -48,7 +48,7 @@ yabai -m config                                 \
 yabai -m rule --add app="^(Mail|Slack|Discord)$" space=1
 yabai -m rule --add app="^(Arc|Firefox|Google Chrome|qutebrowser|Safari)$" space=2
 yabai -m rule --add app="^(Alacritty|kitty)$" space=3
-yabai -m rule --add app="^(Spotify|Music)$" space=4
+yabai -m rule --add app="^(Spotify|Music|Zotero|Preview)$" space=4
 yabai -m rule --add app="^(Signal|Microsoft Teams|Viber)$" space=5
 
 echo "yabai configuration loaded..."
