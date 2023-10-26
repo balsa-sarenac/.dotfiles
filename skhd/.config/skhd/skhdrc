@@ -106,7 +106,7 @@
 # ]
 
 .blacklist [
-    "pharo",
+    "pharo"
 ]
 
 # restart yabai config
@@ -118,9 +118,6 @@ cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 # open Arc
 cmd + shift - return : /Applications/Arc.app/Contents/MacOS/Arc
 
-# open mpv
-cmd - m : open -na /Applications/mpv.app $(pbpaste)
-
 # change layout of desktop
 cmd + ctrl - a : yabai -m space --layout bsp
 cmd + ctrl - s : yabai -m space --layout monocle
@@ -130,13 +127,6 @@ cmd + ctrl - b : yabai -m space --balance
 cmd + ctrl + shift - r : yabai -m space --rotate 90
 
 # focus window in bsp mode
-# cmd + ctrl - l : yabai -m window --focus east
-# cmd + ctrl - h : yabai -m window --focus west
-# cmd + ctrl - k : yabai -m window --focus north
-# cmd + ctrl - j : yabai -m window --focus south
-# cmd + ctrl - r : yabai -m window --focus recent
-# cmd + ctrl - p : yabai -m window --focus prev
-# cmd + ctrl - n : yabai -m window --focus next
 alt - h: yabai -m window --focus west
 alt - j: yabai -m window --focus south
 alt - k: yabai -m window --focus north
@@ -145,49 +135,38 @@ alt - p: yabai -m window --focus stack.prev
 alt - n: yabai -m window --focus stack.next
 alt - f: yabai -m window --focus stack.first
 alt - g: yabai -m window --focus stack.last
-# forward
-ctrl + shift - right : yabai -m query --spaces --space \
-  | jq -re ".index" \
-  | xargs -I{} yabai -m query --windows --space {} \
-  | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
-  | xargs -I{} yabai -m window --focus {}
 
-# backward
-ctrl + shift - left: yabai -m query --spaces --space \
-  | jq -re ".index" \
-  | xargs -I{} yabai -m query --windows --space {} \
-  | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
-  | xargs -I{} yabai -m window --focus {}
-
-cmd + shift + alt - l : yabai -m window --swal east
+# not working
+cmd + shift + alt - l : yabai -m window --swap east
 cmd + shift + alt - h : yabai -m window --swap west
 cmd + shift + alt - k : yabai -m window --swap north
 cmd + shift + alt - j : yabai -m window --swap south
 
+# fast focus desktop
+cmd + alt - z : yabai -m space --focus prev
+cmd + alt - x : yabai -m space --focus next
+ctrl - z : yabai -m space --focus recent
+ctrl - 1 : yabai -m space --focus 1
+ctrl - 2 : yabai -m space --focus 2
+ctrl - 3 : yabai -m space --focus 3
+ctrl - 4 : yabai -m space --focus 4
+ctrl - 5 : yabai -m space --focus 5
+ctrl - 6 : yabai -m space --focus 6
+ctrl - 7 : yabai -m space --focus 7
+ctrl - 8 : yabai -m space --focus 8
+ctrl - 9 : yabai -m space --focus 9
+ctrl - 0 : yabai -m space --focus 10
+
+# update these
 ctrl + fn - f : open ~
-ctrl + fn - t : open -na /Applications/kitty.app
+ctrl + fn - t : open -na /Applications/Alacritty.app
 ctrl + fn - s : open "x-apple.systempreferences:"
 ctrl + fn - a : open -a "About This Mac"
-ctrl + fn - c : open -na /Applications/Firefox.app
-ctrl + fn - v : open -na /Applications/Visual\ Studio\ Code.app
-ctrl + fn - l : open -na /Applications/Slack.app
+ctrl + fn - c : open -na /Applications/Arc.app
 ctrl + fn - m : open -na /Applications/Spotify.app
 ctrl + fn - g : open -na /Applications/Signal.app
 
-# fast focus desktop
-# ctrl - left : yabai -m space --focus prev
-# ctrl - right : yabai -m space --focus next
-# ctrl - z : yabai -m space --focus recent
-# ctrl - 1 : yabai -m space --focus 1
-# ctrl - 2 : yabai -m space --focus 2
-# ctrl - 3 : yabai -m space --focus 3
-# ctrl - 4 : yabai -m space --focus 4
-# ctrl - 5 : yabai -m space --focus 5
-# ctrl - 6 : yabai -m space --focus 6
-# ctrl - 7 : yabai -m space --focus 7
-# ctrl - 8 : yabai -m space --focus 8
-# ctrl - 9 : yabai -m space --focus 9
-# ctrl - 0 : yabai -m space --focus 10
+# not sure what are these
 # ctrl + shift - 1 : yabai -m window --space  1; yabai -m space --focus 1
 # ctrl + shift - 2 : yabai -m window --space  2; yabai -m space --focus 2
 # ctrl + shift - 3 : yabai -m window --space  3; yabai -m space --focus 3
@@ -198,30 +177,10 @@ ctrl + fn - g : open -na /Applications/Signal.app
 # ctrl + shift - 8 : yabai -m window --space  8; yabai -m space --focus 8
 # ctrl + shift - 9 : yabai -m window --space  9; yabai -m space --focus 9
 # ctrl + shift - 0 : yabai -m window --space 10; yabai -m space --focus 10
-#
-# float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + cmd - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
-
-# create desktop and follow focus - uses jq for parsing json (brew install jq)
-cmd + alt - n : yabai -m space --create && \
-                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                yabai -m space --focus "${index}"
 
 # destroy desktop
 cmd + alt - w : yabai -m space --destroy
 
-# focusing
-cmd + alt - z : yabai -m space --focus prev
-cmd + alt - x : yabai -m space --focus next
-cmd + alt - 1 : yabai -m space --focus 1
-cmd + alt - 2 : yabai -m space --focus 2
-cmd + alt - 3 : yabai -m space --focus 3
 # send window to desktop and follow focus
 # shift + cmd - c : yabai -m window --space recent; yabai -m space --focus recent
 # shift + cmd - z : yabai -m window --space prev; yabai -m space --focus prev
@@ -245,3 +204,31 @@ shift + cmd - d : yabai -m window --resize right:-20:0
 alt - r : yabai -m space --rotate 90
 
 
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+shift + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+# create desktop and follow focus - uses jq for parsing json (brew install jq)
+cmd + alt - n : yabai -m space --create && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                yabai -m space --focus "${index}"
+
+# forward
+ctrl + shift - right : yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+  | xargs -I{} yabai -m window --focus {}
+
+# backward
+ctrl + shift - left: yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+  | xargs -I{} yabai -m window --focus {}
