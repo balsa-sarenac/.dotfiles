@@ -99,6 +99,10 @@ fi
 # Turso
 export PATH="/Users/balsa/.turso:$PATH"
 
+# Gotham Shell
+# GOTHAM_SHELL="$HOME/.config/gotham/gotham.sh"
+# [[ -s $GOTHAM_SHELL ]] && source $GOTHAM_SHELL
+
 # EXTENDED_HISTORY
 export EDITOR=nvim
 export REACT_EDITOR=nvim

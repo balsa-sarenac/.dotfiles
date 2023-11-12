@@ -1,4 +1,8 @@
 return {
+    -- "whatyouhide/vim-gotham",
+    -- config = function ()
+    --     vim.cmd.colorscheme("gotham")
+    -- end
     "miikanissi/modus-themes.nvim",
     priority = 1000,
     config = function()
@@ -10,7 +14,7 @@ return {
                 keywords = { italic = false }
             }
         })
-        vim.cmd.colorscheme("modus_operandi") -- modus_operandi, modus_vivendi
+        vim.cmd.colorscheme("modus_vivendi") -- modus_operandi, modus_vivendi
     end
     --    "rose-pine/neovim",
     --    name = "rose-pine",
