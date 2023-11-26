@@ -8,7 +8,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# local scripts
 export PATH="$PATH:$HOME/.local/bin"
+
+# pharo-cli (github.com/balsa-sarenac/pharo-cli)
+export PATH="$PATH:$HOME/Projects/balsa-sarenac/pharo-cli/bin"
 
 # postgres
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
