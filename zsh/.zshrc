@@ -95,3 +95,6 @@ if [ -f ~/.local/bin/jump.sh ]; then
 else
     print "404: ~/.local/bin/jump.sh not found"
 fi
+
+# Turso
+export PATH="/Users/balsa/.turso:$PATH"
