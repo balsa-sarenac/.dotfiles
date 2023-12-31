@@ -72,4 +72,6 @@ return require('packer').startup(function(use)
 
   use("Exafunction/codeium.vim")
 
+  use('whatyouhide/vim-gotham')
+
 end)
