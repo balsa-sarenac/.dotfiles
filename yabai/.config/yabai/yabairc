@@ -46,9 +46,9 @@ yabai -m config                                 \
 
 # Web browsers
 yabai -m rule --add app="^(Mail|Slack|Discord)$" space=1
-yabai -m rule --add app="^(Arc|Firefox|Google Chrome|qutebrowser|Safari)$" space=2
-yabai -m rule --add app="^(Alacritty|kitty)$" space=3
-yabai -m rule --add app="^(Spotify|Music|Zotero)$" space=4
-yabai -m rule --add app="^(Signal|Microsoft Teams|Viber)$" space=5
+yabai -m rule --add app="^(Arc|Firefox|Google Chrome|qutebrowser)$" space=2
+yabai -m rule --add app="^(kitty)$" space=3
+yabai -m rule --add app="^(Zotero)$" space=4
+yabai -m rule --add app="^(Spotify|Music|Signal|Microsoft Teams|Viber)$" space=5
 
 echo "yabai configuration loaded..."
