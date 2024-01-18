@@ -11,7 +11,7 @@
 #import:
 #  - /path/to/alacritty.yml
 import:
-  - ~/.config/alacritty/themes/rose-pine.yml
+  - ~/.config/alacritty/themes/gotham.yml
 
 #schemes:
 #  zenburned: &zenburned
