@@ -98,3 +98,10 @@ fi
 
 # Turso
 export PATH="/Users/balsa/.turso:$PATH"
+
+# EXTENDED_HISTORY
+export EDITOR=nvim
+export REACT_EDITOR=nvim
+
+eval "$(atuin init zsh)"
+
