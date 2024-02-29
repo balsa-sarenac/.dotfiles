@@ -16,6 +16,7 @@
     current = !git branch -r --merged | grep -q $1 && echo Incorporates $1 || echo Out of date from $1 && :
     recent = "for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
     recap = "log --all --oneline --no-merges --author=\"Balša Šarenac\""
+	pf = push --force-with-lease
 
 [core]
 	editor = nvim
