@@ -35,11 +35,12 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+-- vim.o.completeopt = 'menuone,noselect'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.opt.foldmethod = 'syntax'
-vim.opt.foldlevelstart = 99
+-- vim.opt.foldmethod = 'syntax'
+-- vim.opt.foldlevelstart = 99
+
