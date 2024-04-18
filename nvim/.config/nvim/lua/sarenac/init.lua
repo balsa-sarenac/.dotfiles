@@ -21,6 +21,14 @@ autocmd('LspAttach', {
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
+
+        -- Create a command `:Format` local to the LSP buffer
+        vim.api.nvim_buf_create_user_command(opts.buffer, 'Format', function(_)
+            if vim.lsp.buf.format then
+                vim.lsp.buf.format()
+            elseif vim.lsp.buf.formatting then
+                vim.lsp.buf.formatting()
+            end
+        end, { desc = 'Format current buffer with LSP' })
     end
 })
-
