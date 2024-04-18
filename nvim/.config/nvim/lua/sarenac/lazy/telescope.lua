@@ -33,6 +33,9 @@ return {
         vim.keymap.set('n', '<leader>ps', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
         end)
+        vim.keymap.set('n', '<leader>vd', builtin.diagnostics, {})
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+        vim.keymap.set('n', '<leader>sg', builtin.grep_string, {})
+        vim.keymap.set('n', '<leader>sd', builtin.grep_string, {})
     end
 }
