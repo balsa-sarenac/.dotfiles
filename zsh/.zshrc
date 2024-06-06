@@ -105,3 +105,5 @@ export REACT_EDITOR=nvim
 
 eval "$(atuin init zsh)"
 
+# Difftastic
+GIT_EXTERNAL_DIFF=difft
