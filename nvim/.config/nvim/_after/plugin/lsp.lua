@@ -19,6 +19,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   },
   ['<Tab>'] = cmp.config.disable,
 })
+cmp.setup.filetype({ "sql" }, {
+    sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+    },
+})
 
 lsp.set_preferences({
   sign_icons = { }
