@@ -107,3 +107,10 @@ eval "$(atuin init zsh)"
 
 # Difftastic
 GIT_EXTERNAL_DIFF=difft
+
+# Pharo launcher
+alias pharo-launcher='/Applications/PharoLauncher.app/Contents/Resources/pharo-launcher'
+alias pl='pharo-launcher'
+
+# QOL
+alias vim=nvim
