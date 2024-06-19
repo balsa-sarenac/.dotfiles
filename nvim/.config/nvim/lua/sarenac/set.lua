@@ -21,6 +21,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.opt.inccommand = "split"
 
 vim.opt.termguicolors = true
 
