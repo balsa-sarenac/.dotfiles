@@ -44,14 +44,10 @@
 [color]
 	ui = auto
 [diff]
-    external = difft
-    #tool = nvimdiff
-    tool = difftastic
-[difftool "difftastic"]
-    cmd = "difftastic \"$LOCAL\" \"$REMOTE\""
+    tool = nvimdiff
 [pager]
     difftool = true
-#[difftool "nvimdiff"]
-    #cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[difftool "nvimdiff"]
+    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
 [difftool]
 	prompt = false
