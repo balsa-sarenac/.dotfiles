@@ -10,7 +10,7 @@ return {
                 keywords = { italic = false }
             }
         })
-        vim.cmd.colorscheme("modus") -- modus_operandi, modus_vivendi
+        vim.cmd.colorscheme("modus_operandi") -- modus_operandi, modus_vivendi
     end
     --    "rose-pine/neovim",
     --    name = "rose-pine",
