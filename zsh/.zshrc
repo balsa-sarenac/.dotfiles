@@ -114,3 +114,6 @@ alias pl='pharo-launcher'
 
 # QOL
 alias vim=nvim
+
+# use newer ssh for yubikey things
+SSH_AUTH_SOCK="~/.ssh/agent"
