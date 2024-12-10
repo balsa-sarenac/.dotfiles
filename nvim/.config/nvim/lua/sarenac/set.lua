@@ -44,4 +44,3 @@ vim.g.mapleader = " "
 
 -- vim.opt.foldmethod = 'syntax'
 -- vim.opt.foldlevelstart = 99
-
