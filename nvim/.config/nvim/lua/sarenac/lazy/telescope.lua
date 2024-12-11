@@ -18,12 +18,15 @@ return {
         find_files = {
           theme = "ivy",
         }
-
       },
+      extensions = {
+        fzf = {}
+      }
     })
     pcall(require('telescope').load_extension, 'fzf')
 
     local builtin = require('telescope.builtin')
+
     vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -49,5 +52,7 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
     vim.keymap.set('n', '<leader>sg', builtin.grep_string, {})
     vim.keymap.set('n', '<leader>sd', builtin.live_grep, {})
+
+    require "sarenac.lazy.telescope.multigrep".setup()
   end
 }
