@@ -11,14 +11,14 @@ return {
 
   config = function()
     require('telescope').setup({
-      defaults = {
-        layout_strategy = "bottom_pane",
-      },
-      pickers = {
-        find_files = {
-          theme = "ivy",
-        }
-      },
+      -- defaults = {
+      --   layout_strategy = "bottom_pane",
+      -- },
+      -- pickers = {
+      --   find_files = {
+      --     theme = "ivy",
+      --   }
+      -- },
       extensions = {
         fzf = {}
       }
