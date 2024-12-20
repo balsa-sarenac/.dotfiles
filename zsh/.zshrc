@@ -63,6 +63,8 @@ HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 
 # aliases
 alias ll='ls -al'
+alias d="kitten diff"
+alias gd="git difftool --no-symlinks --dir-diff"
 
 # completion
 autoload -Uz compinit && compinit
@@ -118,6 +120,7 @@ alias pl='pharo-launcher'
 
 # QOL
 alias vim=nvim
+alias ssh="kitten ssh"
 
 # use newer ssh for yubikey things
-SSH_AUTH_SOCK="~/.ssh/agent"
+# SSH_AUTH_SOCK="~/.ssh/agent"
