@@ -60,4 +60,6 @@ vim.keymap.set("n", "<space>st", function ()
   vim.api.nvim_win_set_height(0, 15)
 end)
 
+vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>")
+
 vim.keymap.set("n", "-", "<cmd>Oil<CR>")
