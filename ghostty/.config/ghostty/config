@@ -1,0 +1,7 @@
+font-family = Iosevka
+font-size = 16
+theme = Monokai Pro Spectrum
+
+keybind = global:cmd+'=toggle_quick_terminal
+quick-terminal-animation-duration = 0.1
+
