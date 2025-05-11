@@ -19,20 +19,6 @@
 	pf = push --force-with-lease
     dft = difftool
      dlog = "!f() { : git log ; GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
-	append = town append
-	contribute = town contribute
-	diff-parent = town diff-parent
-	hack = town hack
-	kill = town kill
-	observe = town observe
-	park = town park
-	prepend = town prepend
-	propose = town propose
-	rename-branch = town rename-branch
-	repo = town repo
-	set-parent = town set-parent
-	ship = town ship
-	sync = town sync
 	lg = log --graph --oneline --decorate --all
 	undo = reset HEAD~1 --mixed
 	amend = commit --amend
@@ -40,16 +26,8 @@
 [core]
 	editor = nvim
 [init]
-	defaultbranch = master
+	defaultbranch = trunk
 [color]
 	ui = auto
-[diff]
-    tool = nvimdiff
-[pager]
-    difftool = true
-[difftool "nvimdiff"]
-    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
-[difftool]
-	prompt = false
 [pull]
 	rebase = true
