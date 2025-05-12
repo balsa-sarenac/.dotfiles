@@ -30,7 +30,6 @@ return {
                 "lua_ls",
                 "basedpyright",
                 "ruff",
-                "ruff_lsp",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
