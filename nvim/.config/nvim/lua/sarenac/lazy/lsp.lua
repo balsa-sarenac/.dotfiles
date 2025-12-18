@@ -26,7 +26,7 @@ return {
       require("mason-lspconfig").setup({
           ensure_installed = {
               "lua_ls",
-              "basedpyright",
+              "ty",
               "ruff",
           },
           handlers = {
@@ -49,18 +49,21 @@ return {
             }
           })
         end,
-        ["basedpyright"] = function()
-          lspconfig.basedpyright.setup({
+        ["ty"] = function()
+          lspconfig.ty.setup({
             capabilities = capabilities,
-            settings = {
-              basedpyright = {
-                typeCheckingMode = "basic",
-              },
-            },
           })
         end
       }
     })
+    vim.lsp.config('ty', {
+      settings = {
+        ty = {
+          -- ty language server settings go here
+        }
+      }
+    })
+    vim.lsp.enable('ty')
 
     vim.diagnostic.config({
       -- update_in_insert = true,
