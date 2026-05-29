@@ -2,6 +2,20 @@ font-family = Iosevka
 font-size = 16
 theme = Monokai Pro Spectrum
 
+cursor-style = block
+shell-integration-features = no-cursor
+term=xterm-256color
+macos-titlebar-style = tabs
+window-width = 100000
+window-height = 100000
+window-padding-x = 10
+window-padding-y = 10
+# gtk-adwaita = false
+gtk-titlebar = false
+window-decoration = none
+confirm-close-surface = false
+copy-on-select = clipboard
+mouse-shift-capture = false
+
 keybind = global:cmd+'=toggle_quick_terminal
 quick-terminal-animation-duration = 0.1
-
