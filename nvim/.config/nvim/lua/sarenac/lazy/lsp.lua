@@ -45,6 +45,5 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<Space>f", function() vim.lsp.buf.format() end)
   end
 }

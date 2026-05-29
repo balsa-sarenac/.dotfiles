@@ -1,8 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
 
-  tag = "0.1.5",
-
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -11,14 +9,6 @@ return {
 
   config = function()
     require('telescope').setup({
-      -- defaults = {
-      --   layout_strategy = "bottom_pane",
-      -- },
-      -- pickers = {
-      --   find_files = {
-      --     theme = "ivy",
-      --   }
-      -- },
       extensions = {
         fzf = {}
       }

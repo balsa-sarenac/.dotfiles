@@ -6,7 +6,6 @@ return {
   config = function()
     require("nvim-treesitter.install").ts_generate_args = { "generate", "--abi", tostring(vim.treesitter.language_version) }
     require("nvim-treesitter.configs").setup({
-      ignore_install = { },
       -- A list of parser names, or "all"
       ensure_installed = {
         "vimdoc", "javascript", "typescript", "lua",
