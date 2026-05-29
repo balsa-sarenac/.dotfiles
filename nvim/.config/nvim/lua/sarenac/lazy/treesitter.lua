@@ -4,12 +4,13 @@ return {
   build = ":TSUpdate",
   branch = 'master',
   config = function()
+    require("nvim-treesitter.install").ts_generate_args = { "generate", "--abi", tostring(vim.treesitter.language_version) }
     require("nvim-treesitter.configs").setup({
-      ingore_install = { },
+      ignore_install = { },
       -- A list of parser names, or "all"
       ensure_installed = {
         "vimdoc", "javascript", "typescript", "lua",
-        "python", "bash",
+        "python", "bash", "latex", "bibtex",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)

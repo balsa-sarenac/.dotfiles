@@ -7,7 +7,7 @@ return {
   priority = 1000,
   config = function()
     require("modus-themes").setup({
-      variant = "default", -- Theme comes in four variants `default`, `tinted`, `deuteranopia`, and `tritanopia`
+      variants = "default", -- Theme comes in four variants `default`, `tinted`, `deuteranopia`, and `tritanopia`
       dim_inactive = true,
       styles = {
         comments = { italic = false },
