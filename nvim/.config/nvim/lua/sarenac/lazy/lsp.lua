@@ -1,8 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     "j-hui/fidget.nvim",
     "saghen/blink.cmp",
     {
@@ -17,46 +15,26 @@ return {
   },
 
   config = function()
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-    local lspconfig = require("lspconfig")
+    require("fidget").setup({})
 
-      require("fidget").setup({})
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-          ensure_installed = {
-              "lua_ls",
-              "ty",
-              "ruff",
-          },
-          handlers = {
-              function(server_name) -- default handler (optional)
-                  require("lspconfig")[server_name].setup {
-                      capabilities = capabilities
-                  }
-              end,
+    vim.lsp.config('*', {
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
+    })
 
-        ["lua_ls"] = function()
-          lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                runtime = { version = "Lua 5.1" },
-                diagnostics = {
-                  globals = { "vim", "it", "describe", "before_each", "after_each" },
-                }
-              }
-            }
-          })
-        end,
-        ["ty"] = function()
-          lspconfig.ty.setup({
-            capabilities = capabilities,
-          })
-        end
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          runtime = { version = "Lua 5.1" },
+          diagnostics = {
+            globals = { "vim", "it", "describe", "before_each", "after_each" },
+          }
+        }
       }
     })
+
+    vim.lsp.enable({ 'lua_ls', 'ty', 'ruff' })
+
     vim.diagnostic.config({
-      -- update_in_insert = true,
       float = {
         focusable = false,
         style = "minimal",
