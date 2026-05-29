@@ -1,8 +1,11 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false,
   build = ":TSUpdate",
+  branch = 'master',
   config = function()
     require("nvim-treesitter.configs").setup({
+      ingore_install = { },
       -- A list of parser names, or "all"
       ensure_installed = {
         "vimdoc", "javascript", "typescript", "lua",

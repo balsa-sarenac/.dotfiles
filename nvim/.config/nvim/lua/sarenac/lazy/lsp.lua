@@ -3,7 +3,6 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "L3MON4D3/LuaSnip",
     "j-hui/fidget.nvim",
     "saghen/blink.cmp",
     {
@@ -56,15 +55,6 @@ return {
         end
       }
     })
-    vim.lsp.config('ty', {
-      settings = {
-        ty = {
-          -- ty language server settings go here
-        }
-      }
-    })
-    vim.lsp.enable('ty')
-
     vim.diagnostic.config({
       -- update_in_insert = true,
       float = {
