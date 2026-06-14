@@ -2,91 +2,49 @@ return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
   build = ":TSUpdate",
-  branch = 'master',
+  branch = "main",
   config = function()
-    require("nvim-treesitter.install").ts_generate_args = { "generate", "--abi", tostring(vim.treesitter.language_version) }
-    require("nvim-treesitter.configs").setup({
-      -- A list of parser names, or "all"
-      ensure_installed = {
-        "vimdoc", "javascript", "typescript", "lua",
-        "python", "bash", "latex", "bibtex",
-      },
+    local treesitter = require("nvim-treesitter")
+    local parsers = {
+      "vimdoc",
+      "javascript",
+      "typescript",
+      "lua",
+      "python",
+      "bash",
+      "latex",
+      "bibtex",
+      "markdown",
+      "markdown_inline",
+    }
 
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
+    treesitter.setup()
 
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
-      auto_install = true,
+    vim.schedule(function()
+      local installed = {}
+      for _, parser in ipairs(treesitter.get_installed("parsers")) do
+        installed[parser] = true
+      end
 
-      indent = {
-        enable = true
-      },
+      local missing = {}
+      for _, parser in ipairs(parsers) do
+        if not installed[parser] then
+          missing[#missing + 1] = parser
+        end
+      end
 
-      highlight = {
-        -- `false` will disable the whole extension
-        enable = true,
+      if #missing > 0 then
+        treesitter.install(missing)
+      end
+    end)
 
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = { "markdown" },
-      },
-
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<c-backspace>',
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            [']m'] = '@function.outer',
-            [']]'] = '@class.outer',
-          },
-          goto_next_end = {
-            [']M'] = '@function.outer',
-            [']['] = '@class.outer',
-          },
-          goto_previous_start = {
-            ['[m'] = '@function.outer',
-            ['[['] = '@class.outer',
-          },
-          goto_previous_end = {
-            ['[M'] = '@function.outer',
-            ['[]'] = '@class.outer',
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ['<leader>a'] = '@parameter.inner',
-          },
-          swap_previous = {
-            ['<leader>A'] = '@parameter.inner',
-          },
-        },
-      },
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("sarenac_treesitter", { clear = true }),
+      callback = function(args)
+        if pcall(vim.treesitter.start, args.buf) then
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
     })
   end
 }
