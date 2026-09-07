@@ -165,3 +165,18 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export COLORTERM=truecolor
 
 export CODEX_HOME="$HOME/.agents/"
+
+tm() {
+  if [ -n "$TMUX" ]; then
+    echo "already inside tmux" >&2
+    return 1
+  fi
+  if ! tmux has-session 2>/dev/null; then
+    tmux start-server
+    for _ in $(seq 20); do
+      tmux has-session 2>/dev/null && break
+      sleep 0.25
+    done
+  fi
+  tmux attach 2>/dev/null || tmux new-session
+}
