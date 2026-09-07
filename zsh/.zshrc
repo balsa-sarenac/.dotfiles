@@ -145,3 +145,7 @@ bindkey '^N' down-line-or-history
 
 # opencode
 export PATH=/Users/balsa/.opencode/bin:$PATH
+export CODEX_HOME=/Users/balsa/.agents/
+
+# grok
+export PATH=/Users/balsa/.grok/bin:$PATH
